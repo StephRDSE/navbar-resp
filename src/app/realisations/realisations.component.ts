@@ -1,4 +1,6 @@
+import { RealService } from './../real.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-realisations',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RealisationsComponent implements OnInit {
 
-  constructor() { }
+reals;
+
+
+  constructor(public realService: RealService) { }
 
   ngOnInit() {
-  }
+    this.reals = this.realService.myReals;
 
+  }
 }

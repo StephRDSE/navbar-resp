@@ -10,8 +10,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { BioComponent } from './bio/bio.component';
 import { RealisationsComponent } from './realisations/realisations.component';
 import { ContactComponent } from './contact/contact.component';
+import { HomeComponent } from './home/home.component';
+import { Page404Component } from './page404/page404.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    redirectTo: '/home' , pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    component: HomeComponent
+  },
   {
     path: 'bio',
     component: BioComponent
@@ -23,6 +33,10 @@ const routes: Routes = [
   {
     path: 'realisations',
     component: RealisationsComponent
+  },
+  {
+    path: '**',
+    component: Page404Component
   }
 ];
 
@@ -32,7 +46,9 @@ const routes: Routes = [
     MyNavComponent,
     BioComponent,
     RealisationsComponent,
-    ContactComponent
+    ContactComponent,
+    HomeComponent,
+    Page404Component
   ],
   imports: [
     BrowserModule,
